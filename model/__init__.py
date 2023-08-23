@@ -1,0 +1,6 @@
+from .BertForRelationExtraction import BertForRelationExtraction
+from .BertForSentenceClassification import BertForSentenceClassification
+from .BertForEventDetection import BertForEventDetection
+from .BertMoCoForRelationExtraction import BertMoCoForRelationExtraction
+from .BertMoCoForSentenceClassification import BertMoCoForSentenceClassification
+from .BertMoCoForEventDetection import BertMoCoForEventDetection

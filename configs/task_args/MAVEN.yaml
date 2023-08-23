@@ -1,0 +1,5 @@
+task_name: "EventDetection"
+dataset_name: "MAVEN"
+model_arch: "BertForEventDetection"
+num_tasks: 10
+class_per_task: 12

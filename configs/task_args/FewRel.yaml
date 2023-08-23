@@ -1,0 +1,5 @@
+task_name: "RelationExtraction"
+dataset_name: "FewRel"
+model_arch: "BertForRelationExtraction"
+num_tasks: 10
+class_per_task: 8

@@ -1,0 +1,70 @@
+task_args:
+  # DataArguments
+  task_name: "RelationExtraction"
+  data_path: "datasets"
+  dataset_name: "FewRel"
+  max_seq_length: 256
+  overwrite_cache: False
+  pad_to_max_length: False
+  num_tasks: 10
+  class_per_task: 8
+  model_arch: "BertForRelationExtraction"
+
+model_args:
+  # ModelArguments
+  model_name_or_path: "bert-base-uncased"
+  config_name: "bert-base-uncased"
+  tokenizer_name: "bert-base-uncased"
+  use_fast_tokenizer: True
+  classifier_dropout: 0.5
+
+training_args:
+  # TrainingArguments
+  output_dir: "outputs"
+  overwrite_output_dir: True
+  do_train: True
+  do_eval: True
+  do_predict: True
+  train_batch_size: 32
+  eval_batch_size: 64
+  optim: "adamw_torch"
+  learning_rate: 1e-5
+  classifier_learning_rate: 1e-3
+  weight_decay: 0
+  warmup_epochs: 2
+  lr_scheduler_type: "constant"
+  max_grad_norm: 10.0
+  num_exp_rounds: 5
+  memory_size: 10
+  supervised: False
+  stage1_epochs: 12
+  stage2_epochs: 12
+  stage1_type: 'moco'
+  ema_decay: 0.99
+  moco_queue_size: 512
+  moco_lambda: 0.05
+  moco_temperature: 0.05
+  ncm_evaluate: False
+  stage2_type: 'new_old'
+  adv_K: 2
+  adv_lr: 1e-1
+  adv_max_norm: 3e-1
+  adv_init_mag: 0
+  adv_norm_type: "l2"
+  new_old_lambda: 0.05
+  report_freq: 10
+  seed: 2021
+  device: "cuda:0"
+  debug: False
+
+
+defaults:
+  - _self_
+
+
+hydra:
+  job:
+    name: "test"
+  run:
+    dir: "outputs/${task_args.dataset_name}_${training_args.stage1_type}_${training_args.stage2_type}_${now:%Y-%m-%d_%H-%M-%S}"
+  output_subdir: "hydra_outputs"

@@ -1,0 +1,9 @@
+task_name: "RelationExtraction"
+dataset_name: "TACRED"
+model_arch: "BertForRelationExtraction"
+
+train_batch_size: 16
+eval_batch_size: 64
+
+num_tasks: 10
+class_per_task: 4
