@@ -1,6 +1,6 @@
 # InfoCL
 
-Code for "InfoCL: Alleviating Catastrophic Forgetting in Continual Text Classification from An Information Theoretic Perspective"
+Code for Findings of EMNLP 2023: InfoCL: Alleviating Catastrophic Forgetting in Continual Text Classification from An Information Theoretic Perspective
 
 ## Setup
 
